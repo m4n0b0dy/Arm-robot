@@ -11,6 +11,7 @@ class ArmController(PCA9685):
 		self.set_pwm_freq(freq)
 		self.servo_channels = config.SERVO_CHANNELS
 		self.servo_ranges = config.SERVO_RANGES
+		self.servo_directions = config.SERVO_DIRECTIONS
 		self.servo_keys = list(self.servo_channels.keys())
 		self.current_positions = config.DEFAULT_STARTS.copy()
 		self.set_all_joints(config.DEFAULT_STARTS)
@@ -24,7 +25,15 @@ class ArmController(PCA9685):
 
 	def convert_deg_to_pos(self, joint, deg):
 		rng = self.servo_ranges[joint]
-		return deg*(rng[1]-rng[0])+rng[0]
+		direction = self.servo_directions[joint]
+		#check me
+		pos = deg*(rng[1]-rng[0])
+		if direction == -1:
+			pos-=rng[1]
+		elif direction == 1:
+			pos+=rng[0]
+			
+		return pos
 
 	def convert_and_set(self, joint, deg):
 		self.set_joint(joint=joint,
