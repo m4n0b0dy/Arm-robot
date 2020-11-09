@@ -1,20 +1,20 @@
-
 from flask import Flask
-from flask import jsonify
-
+from flask import jsonify, request
+import josn
+from configs import config
+from tools.PCA6685_LIBRARY import ArmController
 
 app = Flask(__name__)
 
+arm_robot = ArmController()
+
+
 @app.route('/', methods=['GET'])
-def base_url():
-    """Base url to test API."""
+def get_angles():
+    commands = request.get_json(force=True)
+    arm_robot.
 
-    response = {
-        'response': 'Template Here!'
-    }
-
-    return jsonify(response)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5005, debug=True)
