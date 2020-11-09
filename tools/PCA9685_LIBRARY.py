@@ -13,7 +13,7 @@ class ArmController(PCA9685):
 		self.servo_ranges = config.SERVO_RANGES
 		self.servo_directions = config.SERVO_DIRECTIONS
 		self.servo_keys = list(self.servo_channels.keys())
-		self.current_positions = config.DEFAULT_STARTS.copy()
+		self.current_degrees = config.DEFAULT_STARTS.copy()
 		self.set_all_joints(config.DEFAULT_STARTS)
 
 	def set_joint(self, joint, pos):
@@ -21,7 +21,6 @@ class ArmController(PCA9685):
 		pos = int(pos)
 		channel = self.servo_channels[joint]
 		self.set_pwm(channel, 0, pos)
-		self.current_positions[joint] = pos
 
 	def convert_deg_to_pos(self, joint, deg):
 		rng = self.servo_ranges[joint]
@@ -38,6 +37,7 @@ class ArmController(PCA9685):
 	def convert_and_set(self, joint, deg):
 		self.set_joint(joint=joint,
 			pos=self.convert_deg_to_pos(joint, deg))
+		self.current_degrees[joint] = deg
 	
 	def set_all_joints(self, command_dic):
 		command_list = list(command_dic.items())

@@ -16,7 +16,7 @@ arm_robot = ArmController()
 @app.route('/', methods=['POST'])
 def set_angles():
 	commands = request.get_json(force=True)
-	#arm_robot.set_all_joints(commands)
+	arm_robot.set_all_joints(commands)
 	msg = 'Set'+str(commands)
 	print(msg)
 	return msg
