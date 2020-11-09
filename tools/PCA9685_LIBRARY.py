@@ -29,7 +29,7 @@ class ArmController(PCA9685):
 		#check me
 		pos = deg*(rng[1]-rng[0])
 		if direction == -1:
-			pos-=rng[1]
+			pos=rng[1]-pos
 		elif direction == 1:
 			pos+=rng[0]
 			
