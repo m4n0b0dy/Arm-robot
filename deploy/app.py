@@ -20,6 +20,6 @@ def set_angles():
 	msg = 'Set'+str(commands)
 	print(msg)
 	return msg
-	
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5005, debug=True)
