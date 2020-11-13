@@ -25,7 +25,6 @@ class ArmController(PCA9685):
 	def convert_deg_to_pos(self, joint, deg):
 		rng = self.servo_ranges[joint]
 		direction = self.servo_directions[joint]
-		#check me
 		pos = deg*(rng[1]-rng[0])
 		if direction == -1:
 			pos=rng[1]-pos
@@ -41,7 +40,7 @@ class ArmController(PCA9685):
 	
 	def set_all_joints(self, command_dic):
 		command_list = list(command_dic.items())
-		pool = ThreadPool(len(self.servo_keys))
+		pool = ThreadPool(len(command_list))
 		pool.starmap(self.convert_and_set, command_list)
 		pool.close()
 		pool.join()

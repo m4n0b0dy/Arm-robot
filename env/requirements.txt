@@ -1,6 +1,2 @@
-# EXAMPLES
-numpy
-scipy
-sciki-learn
-requests
-flask
+Adafruit-PCA9685
+Flask
