@@ -1,6 +1,6 @@
 # The ARM
 
-## Controlling a robotic arm with hand (10 DOF) via OpenPose and PCA9685 Pi programming
+## Controlling a (10 DOF) robotic arm with hand via [OpenPose translated](https://github.com/m4n0b0dy/Arm-server) commands
 
 ## Project ToDos
 - [x] Robot Arm Physically Built (with custom right hand)
