@@ -14,8 +14,8 @@
 - Docker base images
   - Ubuntu 18.04
 
-## Publication
-- [Not Published yet](linkedin.com)
+## The Video
+- [Video Published Here](linkedin.com)
 
 ## Installation and Running
 ### (on Raspberry Pi with PCA9685 board and LewanSoul Robot Arm)
