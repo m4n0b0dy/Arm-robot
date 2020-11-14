@@ -21,8 +21,6 @@
 ### (on Raspberry Pi with PCA9685 board and LewanSoul Robot Arm)
 ```sh
 git clone git@github.com:m4n0b0dy/Arm-robot.git
-```
-```sh
 docker build --tag arm:latest .
 docker run --device /dev/i2c-1 --network="host" --name arm -d arm:latest
 ```
@@ -30,7 +28,7 @@ docker run --device /dev/i2c-1 --network="host" --name arm -d arm:latest
 ### To call the API, simply post a request to the Arm server hostname
 
 ## Parts List
-- [Raspberry Pi 3 or 4]
+- Raspberry Pi 3 or 4
 - [LewanSoul Arm](https://www.banggood.com/LOBOT-6DOF-Metal-RC-Robot-Arm-Programmable-MP3-Music-With-Digital-Servo-p-1410198.html?rmmds=myorder&cur_warehouse=CN)
 - [LewanSoul Right Hand](https://www.banggood.com/LOBOT-uHand2_0-DIY-RC-Robot-Arm-Independent-Fingers-With-LFD-01-Anti0-block-Servos-p-1527085.html?rmmds=myorder&cur_warehouse=CN)
 - [PCA9685 Controller](https://www.amazon.com/gp/product/B07WS5XY63/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
